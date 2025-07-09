@@ -17,17 +17,7 @@ APP_DESCRIPTION = "Interactive Coding Problem Solver with AI Assistance"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_ORG_ID = os.getenv("OPENAI_ORG_ID")
 OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
-
-# ChatAnywhere Configuration
-OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
-USE_CHATANYWHERE = os.getenv("USE_CHATANYWHERE", "False").lower() == "true"
-
-# Common ChatAnywhere endpoints
-CHATANYWHERE_ENDPOINTS = {
-    "chatanywhere": "https://api.chatanywhere.tech/v1",
-    "chatanywhere_cn": "https://api.chatanywhere.cn/v1",
-    "custom": os.getenv("CUSTOM_OPENAI_ENDPOINT", "")
-}
+OPENAI_BASE_URL = "https://api.openai.com/v1"
 
 # Code Editor Settings
 DEFAULT_THEME = "monokai"
@@ -64,10 +54,7 @@ def get_config():
         "openai": {
             "api_key": OPENAI_API_KEY,
             "org_id": OPENAI_ORG_ID,
-            "model": OPENAI_MODEL,
-            "base_url": OPENAI_BASE_URL,
-            "use_chatanywhere": USE_CHATANYWHERE,
-            "chatanywhere_endpoints": CHATANYWHERE_ENDPOINTS
+            "model": OPENAI_MODEL
         },
         "editor": {
             "theme": DEFAULT_THEME,

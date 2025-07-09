@@ -36,7 +36,7 @@ An advanced interactive web application built with Streamlit that helps users so
 
 ### Prerequisites
 - Python 3.8 or higher
-- OpenAI API key OR ChatAnywhere API key (for AI features)
+- OpenAI API key (for AI features)
 
 ### Installation
 
@@ -124,22 +124,6 @@ Create a `.env` file with your preferred configuration. The application now feat
 OPENAI_API_KEY=your_openai_api_key_here
 OPENAI_BASE_URL=https://api.openai.com/v1
 OPENAI_MODEL=gpt-4o-mini
-```
-
-#### ChatAnywhere (Alternative):
-```env
-OPENAI_API_KEY=your_chatanywhere_api_key_here
-OPENAI_BASE_URL=https://api.chatanywhere.tech/v1
-OPENAI_MODEL=gpt-4o-mini
-USE_CHATANYWHERE=true
-```
-
-#### ChatAnywhere China:
-```env
-OPENAI_API_KEY=your_chatanywhere_api_key_here
-OPENAI_BASE_URL=https://api.chatanywhere.cn/v1
-OPENAI_MODEL=gpt-4o-mini
-USE_CHATANYWHERE=true
 ```
 
 #### Optional Settings:
@@ -457,3 +441,7 @@ This project is open source. Feel free to use, modify, and distribute.
 ```bash
 streamlit run app.py
 ```
+
+### LICENSE
+
+This project is licensed under the MIT License. For more details, please see the `LICENSE` file included in this repository.

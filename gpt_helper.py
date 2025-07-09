@@ -10,7 +10,7 @@ from config import get_config
 
 # Initialize OpenAI client
 def get_openai_client():
-    """Initialize OpenAI client with API key and base URL from environment"""
+    """Initialize OpenAI client with API key from environment"""
     config = get_config()
     openai_config = config["openai"]
     
@@ -18,35 +18,19 @@ def get_openai_client():
     if not api_key:
         raise ValueError("OPENAI_API_KEY environment variable not set")
     
-    # Set up the client with custom base URL if specified
-    base_url = openai_config["base_url"]
-    
-    # Debug information
-    print(f"DEBUG: Using API key: {api_key[:10]}...")
-    print(f"DEBUG: Using base URL: {base_url}")
-    print(f"DEBUG: Using model: {openai_config['model']}")
-    
-    # For newer OpenAI library versions (v1.0+)
     try:
         from openai import OpenAI
         client = OpenAI(
             api_key=api_key,
-            base_url=base_url,
             organization=openai_config.get("org_id")
         )
-        print(f"DEBUG: Created new OpenAI client successfully")
         return client
     except ImportError:
-        print(f"DEBUG: Using legacy OpenAI client")
         # Fallback for older OpenAI library versions
         openai.api_key = api_key
-        openai.api_base = base_url
         if openai_config.get("org_id"):
             openai.organization = openai_config["org_id"]
         return openai
-    except Exception as e:
-        print(f"DEBUG: Error creating OpenAI client: {e}")
-        raise
 
 def get_model_name():
     """Get the configured model name"""
